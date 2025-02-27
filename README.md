@@ -1,0 +1,1 @@
+# CARG_evento_imagen_26022025
