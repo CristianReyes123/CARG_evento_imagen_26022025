@@ -24,21 +24,21 @@ function sensorClick(){
 }
 
 function createPopUp(parent){
-    let p = document.getElementById("popup")
+    let p = document.getElementById("popup");
 
     if(p){
         p.parentNode.removeChild(p);
     }
-
-    let popup = document.createElement("div")
+    
+    let popup = document.createElement("div");
     popup.id = "popup";
     popup.className = "popup";
     popup.style.top = parent.y - 110 + "px";
     popup.style.left = parent.x -75 + "px";
 
-    let text =  document.createElement("span");
+    let text = document.createElement("span");
     text.textContent = parent.id;
-    popup.appendChild(popup);
+    popup.appendChild(text);
 
     var map = document.getElementsByClassName("map")[0];
     map.appendChild(popup);
@@ -51,15 +51,15 @@ function baseOnLoad(){
     maxTop = base.height - 50;
 
     for(let i = 0; i < 6; i++){
-        let sensor =document.createElement("img");
+        let sensor = document.createElement("img");
         sensor.src = imgs[i%imgs.length];
         sensor.alt = i;
         sensor.id = i;
         sensor.draggable = true;
         sensor.classList.add("sensor");
         sensor.classList.add("dragme");
-        sensor.style.left = `${Math.floor(Math.random() * 900)}`;
-        sensor.style.top = `${Math.floor(Math.random() * 500)}`;
+        sensor.style.left = `${Math.floor(Math.random() * 900)}px`;
+        sensor.style.top = `${Math.floor(Math.random() * 500)}px`;
         sensor.onclick = sensorClick;
 
         let parent = document.getElementsByClassName("map")[0];
@@ -96,10 +96,10 @@ function dragDiv(){
     if(!e) var e = window.event;
 
     let newLeft = coordX + e.clientX - offsetX;
-    if(newLeft < maxLeft && newleft > minLeft) targ.style.left = newleft + `px`;
+    if(newLeft < maxLeft && newLeft > minLeft) targ.style.left = newLeft + `px`;
 
     let newTop = coordY + e.clientY - offsetY;
-    if(newTop < maxTop && newTop > minTop) targ.style.top = newTop + `px`
+    if(newTop < maxTop && newTop > minTop) targ.style.top = newTop + `px`;
     return false;
 }
 
@@ -116,5 +116,5 @@ function stopDrag(){
             targ.style.top = originalY;
         }
     }
-    drag = false
+    drag = false;
 }
