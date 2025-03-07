@@ -12,7 +12,7 @@ let imgs = [
 var originalX;
 var originalY;
 
-Window.onload = function(){
+window.onload = function(){
     document.onmousedown = startDrag;
     document.onmouseup = stopDrag;
 }
